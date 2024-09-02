@@ -16,6 +16,7 @@ app.use('/api', authRoutes);
 
 // Connect to MongoDB
 connectToMongoDB();
+
 console.log('MONGODB_URI:', process.env.MONGO_DB_URI); // Add this line in server.js
 
 const PORT = process.env.PORT || 5000;
