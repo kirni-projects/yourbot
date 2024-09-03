@@ -13,7 +13,7 @@ app.use(express.json());
 
 // Serve static files from the frontend
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, 'frontend/')));
+app.use(express.static(path.join(__dirname, 'frontend/dist')));
 
 app.use('/api', registerRoutes);
 app.use('/api', scriptCheckRoutes);
@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 5000;
 
 // Serve the frontend's index.html for any unhandled routes
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'frontend', 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
