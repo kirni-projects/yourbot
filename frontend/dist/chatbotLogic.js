@@ -13,7 +13,7 @@ function initializeChatbot(containerId, dataId, eid) {
           <div style="border-top: 1px solid #ccc; padding: 10px;">
             <input type="text" placeholder="Type your message here..." style="width: 100%;" />
           </div>
-        </div>
+        </div>  
       `;
     }
   }

@@ -6,7 +6,7 @@
     // Fetch the allowed domain from the backend
     async function fetchAllowedDomain() {
         try {
-            const response = await fetch(`http://localhost:5000/api/getdomainurl/${eid}`);
+            const response = await fetch(`/api/getdomainurl/${eid}`);
             const data = await response.json();
             return data.domainURL;
         } catch (error) {
@@ -44,7 +44,7 @@
             document.body.appendChild(container);
   
             const chatbotScript = document.createElement('script');
-            chatbotScript.src = `http://localhost:3000/chatbotLogic.js`;
+            chatbotScript.src = `/chatbotLogic.js`; // No need for localhost or domain in production
             chatbotScript.async = true;
             document.body.appendChild(chatbotScript);
   
@@ -61,8 +61,8 @@
     }
   
     initializeWidget();
-  })();
-  
+})();
+
   
   
   // // public/widget.js

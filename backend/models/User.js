@@ -26,8 +26,13 @@ UserSchema.pre('save', function (next) {
   // Generate the EID
   user.eid = generateEID();
   
+  // Get the current environment domain
+  const scriptDomain = process.env.NODE_ENV === 'production' 
+    ? 'https://yourbot-fs1l.onrender.com' // Replace with your live domain
+    : 'http://localhost:3000';
+
   // Generate the embed script
-  const scriptUrl = `http://localhost:3000/widget.js`; // Adjust this to match your domain
+  const scriptUrl = `${scriptDomain}/widget.js`;
   const dataId = `chatbot-${user._id}`;
   
   user.script = `<script type='module' src='${scriptUrl}' data-id='${dataId}' eid='${user.eid}'></script>`;
