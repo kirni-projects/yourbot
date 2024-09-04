@@ -5,11 +5,18 @@ import connectToMongoDB from './db/connectToMongoDB.js';
 import registerRoutes from './routes/registerRoutes.js';
 import scriptCheckRoutes from './routes/scriptCheckRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+
+// Add CORS middleware to allow requests from your domain
+app.use(cors({
+  origin: 'https://yourbot-fs1l.onrender.com', // Replace with your domain
+  credentials: true,
+}));
 
 // Serve static files from the frontend
 const __dirname = path.resolve();
